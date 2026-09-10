@@ -6,129 +6,238 @@
 <title>Horarios Docentes 2026-2 · UNASAM</title>
 <style>
 * { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: Arial, sans-serif; background: #f4f6f9; color: #222; padding: 2rem 1rem; }
-.container { max-width: 720px; margin: 0 auto; }
-h1 { font-size: 20px; font-weight: 600; margin-bottom: 4px; color: #1a1a2e; }
-.subtitle { font-size: 13px; color: #666; margin-bottom: 1.2rem; }
-.search-wrap { position: relative; margin-bottom: 1rem; }
+
+body {
+  font-family: Arial, sans-serif;
+  background: #f4f6f9;
+  color: #222;
+  padding: 2rem 1rem;
+}
+
+.container {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+h1 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 4px;
+  color: #1a1a2e;
+}
+
+.subtitle {
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 1.2rem;
+}
+
+.search-wrap {
+  position: relative;
+  margin-bottom: 1rem;
+}
+
 .search-wrap input {
-width: 100%; padding: 9px 14px 9px 36px;
-border: 1px solid #ccc; border-radius: 8px;
-font-size: 14px; outline: none; background: #fff;
+  width: 100%;
+  padding: 9px 14px 9px 36px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+  outline: none;
+  background: #fff;
 }
-.search-wrap input:focus { border-color: #185FA5; }
+
+.search-wrap input:focus {
+  border-color: #185FA5;
+}
+
 .search-icon {
-position: absolute; left: 11px; top: 50%;
-transform: translateY(-50%); font-size: 16px; color: #aaa;
-pointer-events: none;
+  position: absolute;
+  left: 11px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 16px;
+  color: #aaa;
+  pointer-events: none;
 }
+
 .list {
-border: 1px solid #dde3ec; border-radius: 10px;
-overflow: hidden; background: #fff;
+  border: 1px solid #dde3ec;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #fff;
 }
+
 .row {
-display: flex; align-items: center;
-justify-content: space-between;
-padding: 10px 16px; gap: 12px;
-border-bottom: 1px solid #eef0f4;
-transition: background 0.15s;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 16px;
+  gap: 12px;
+  border-bottom: 1px solid #eef0f4;
+  transition: background 0.15s;
 }
-.row:last-child { border-bottom: none; }
-.row:hover { background: #f0f5fb; }
-.left { display: flex; align-items: center; gap: 12px; }
+
+.row:last-child {
+  border-bottom: none;
+}
+
+.row:hover {
+  background: #f0f5fb;
+}
+
+.left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
 .avatar {
-width: 34px; height: 34px; min-width: 34px;
-border-radius: 50%; background: #dbeafe;
-display: flex; align-items: center; justify-content: center;
-font-size: 12px; font-weight: 600; color: #1e40af;
+  width: 34px;
+  height: 34px;
+  min-width: 34px;
+  border-radius: 50%;
+  background: #dbeafe;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 600;
+  color: #1e40af;
 }
+
 .name-link {
-font-size: 14px; font-weight: 500;
-color: #185FA5; text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  color: #185FA5;
+  text-decoration: none;
 }
-.name-link:hover { text-decoration: underline; }
+
+.name-link:hover {
+  text-decoration: underline;
+}
+
 .badge {
-font-size: 12px; font-family: monospace;
-background: #f1f5f9; color: #555;
-border: 1px solid #e2e8f0;
-border-radius: 5px; padding: 3px 8px;
-white-space: nowrap;
+  font-size: 12px;
+  font-family: monospace;
+  background: #f1f5f9;
+  color: #555;
+  border: 1px solid #e2e8f0;
+  border-radius: 5px;
+  padding: 3px 8px;
+  white-space: nowrap;
 }
-.empty { text-align: center; padding: 2rem; font-size: 14px; color: #999; }
-.count { font-size: 12px; color: #999; text-align: right; margin-top: 8px; }
+
+.empty {
+  text-align: center;
+  padding: 2rem;
+  font-size: 14px;
+  color: #999;
+}
+
+.count {
+  font-size: 12px;
+  color: #999;
+  text-align: right;
+  margin-top: 8px;
+}
 </style>
 </head>
+
 <body>
 <div class="container">
-<h1>Horarios de docentes — 2026-2</h1>
-<p class="subtitle">Escuela de Posgrado · UNASAM · Haz clic en el nombre para ver el horario en el SGA</p>
-<div class="search-wrap">
-<span class="search-icon">⌕</span>
-<input type="text" id="buscar" placeholder="Buscar por nombre o código..." oninput="filtrar()" />
+  <h1>Horarios de docentes — 2026-2</h1>
+  <p class="subtitle">Escuela de Posgrado · UNASAM · Haz clic en el nombre para ver el horario en el SGA</p>
+
+  <div class="search-wrap">
+    <span class="search-icon">⌕</span>
+    <input
+      type="text"
+      id="buscar"
+      placeholder="Buscar por nombre o código..."
+      oninput="filtrar()"
+    />
+  </div>
+
+  <div class="list" id="lista"></div>
+  <div class="count" id="conteo"></div>
 </div>
-<div class="list" id="lista"></div>
-<div class="count" id="conteo"></div>
-</div>
+
 <script>
 const BASE = "https://sga.unasam.edu.pe/trabajador/{CODE}/horario/2026-2";
+
 const docentes = [
-["CHUNGA ANTON CARLOS HUMBERTO", "CAC311"],
-["DEXTRE MARTINEZ WILLIAM RENE", "DMW001"],
-["DIAZ LEDESMA JOHN ALEX", "DLJ003"],
-["FERNANDEZ CELESTINO WILLIAN JOSUE", "CFA001"],
-["FIGUEROA QUITO SILVIA ISABEL", "FQSI42"],
-["GARCIA FIGUEROA MARIA ELENA", "MGF003"],
-["GONZALES YANAC DORIS TATIANA", "GYDT15"],
-["GONZALEZ LUCERO JUAN ROOSEVELT", "GLR012"],
-["HERRERA SUAREZ ANTONIO MERCEDES", "HSAM01"],
-["LAZARO DIAZ JUAN RENEE", "LDJR05"],
-["LEIVA CHAUCA ORLANDO CARLOS", "LCOC03"],
-["LEON VIGO MARITZA", "LVM001"],
-["LIRIO LOLI FELIX ANTONIO", "LLA432"],
-["LOLI POMA TELMO PABLO", "LPT001"],
-["NORABUENA MENDOZA CESAR HERNAN", "NMC001"],
-["POMA SOTELO RAFAEL RONALD", "PSRR01"],
-["RAMIREZ ASIS EDWIN HERNAN", "RAE603"],
-["ROMERO TAPIA DEMETRIO EDILBERTO", "RTD002"],
-["TANDAYPAN SALAZAR JORGE LUIS", "TSJ330"],
-["TOLEDO QUINONES RICARDO ENRIQUE", "TQR263"],
-["VALDERRAMA PLASENCIA LORENZO RAFAEL", "VPL584"],
-["VIGO MOYA JORGE LUIS", "VMJ257"],
-["VILLANUEVA BENITES LUIS AUGUSTO", "VBL229"],
-["ZARZOSA MARQUEZ EVA DELFINA", "ZME040"]
+  ["BRONCANO GALA JORGE EDWIN", "BGJE01"],
+  ["CHUNGA ANTON CARLOS HUMBERTO", "CAC311"],
+  ["DEXTRE MARTINEZ WILLIAM RENE", "DMW001"],
+  ["DIAZ LEDESMA JOHN ALEX", "DLJ003"],
+  ["FERNANDEZ CELESTINO WILLIAN JOSUE", "CFA001"],
+  ["FIGUEROA QUITO SILVIA ISABEL", "FQSI42"],
+  ["GARCIA FIGUEROA MARIA ELENA", "MGF003"],
+  ["GONZALES YANAC DORIS TATIANA", "GYDT15"],
+  ["GONZALEZ LUCERO JUAN ROOSEVELT", "GLR012"],
+  ["HERRERA SUAREZ ANTONIO MERCEDES", "HSAM01"],
+  ["LAZARO DIAZ JUAN RENEE", "LDJR05"],
+  ["LEIVA CHAUCA ORLANDO CARLOS", "LCOC03"],
+  ["LEON VIGO MARITZA", "LVM001"],
+  ["LIRIO LOLI FELIX ANTONIO", "LLA432"],
+  ["LOLI POMA TELMO PABLO", "LPT001"],
+  ["NORABUENA MENDOZA CESAR HERNAN", "NMC001"],
+  ["POMA SOTELO RAFAEL RONALD", "PSRR01"],
+  ["RAMIREZ ASIS EDWIN HERNAN", "RAE603"],
+  ["ROMERO TAPIA DEMETRIO EDILBERTO", "RTD002"],
+  ["TANDAYPAN SALAZAR JORGE LUIS", "TSJ330"],
+  ["TOLEDO QUINONES RICARDO ENRIQUE", "TQR263"],
+  ["VALDERRAMA PLASENCIA LORENZO RAFAEL", "VPL584"],
+  ["VIGO MOYA JORGE LUIS", "VMJ257"],
+  ["VILLANUEVA BENITES LUIS AUGUSTO", "VBL229"],
+  ["ZARZOSA MARQUEZ EVA DELFINA", "ZME040"]
 ];
+
 function initials(name) {
-const parts = name.trim().split(" ");
-return (parts[0][0] + (parts[1] ? parts[1][0] : "")).toUpperCase();
+  const parts = name.trim().split(" ");
+  return (parts[0][0] + (parts[1] ? parts[1][0] : "")).toUpperCase();
 }
+
 function render(lista) {
-const el = document.getElementById("lista");
-const co = document.getElementById("conteo");
-if (!lista.length) {
-el.innerHTML = '<div class="empty">No se encontraron docentes.</div>';
-co.textContent = "";
-return;
+  const el = document.getElementById("lista");
+  const co = document.getElementById("conteo");
+
+  if (!lista.length) {
+    el.innerHTML = '<div class="empty">No se encontraron docentes.</div>';
+    co.textContent = "";
+    return;
+  }
+
+  el.innerHTML = lista.map(([nombre, codigo]) => {
+    const url = BASE.replace("{CODE}", codigo);
+
+    return `
+      <div class="row">
+        <div class="left">
+          <div class="avatar">${initials(nombre)}</div>
+          <a class="name-link" href="${url}" target="_blank" rel="noopener noreferrer">
+            ${nombre}
+          </a>
+        </div>
+        <span class="badge">${codigo}</span>
+      </div>
+    `;
+  }).join("");
+
+  co.textContent = lista.length + " docente" + (lista.length !== 1 ? "s" : "");
 }
-el.innerHTML = lista.map(([nombre, codigo]) => {
-const url = BASE.replace("{CODE}", codigo);
-return `
-<div class="row">
-<div class="left">
-<div class="avatar">${initials(nombre)}</div>
-<a class="name-link" href="${url}" target="_blank">${nombre}</a>
-</div>
-<span class="badge">${codigo}</span>
-</div>`;
-}).join("");
-co.textContent = lista.length + " docente" + (lista.length !== 1 ? "s" : "");
-}
+
 function filtrar() {
-const q = document.getElementById("buscar").value.toLowerCase();
-const filtrado = docentes.filter(([n, c]) =>
-n.toLowerCase().includes(q) || c.toLowerCase().includes(q)
-);
-render(filtrado);
+  const q = document.getElementById("buscar").value.toLowerCase().trim();
+
+  const filtrado = docentes.filter(([nombre, codigo]) =>
+    nombre.toLowerCase().includes(q) || codigo.toLowerCase().includes(q)
+  );
+
+  render(filtrado);
 }
+
 render(docentes);
 </script>
 </body>
